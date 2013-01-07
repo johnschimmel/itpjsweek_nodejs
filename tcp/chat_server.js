@@ -33,6 +33,8 @@ var clients = [];
 // Start a TCP Server
 net.createServer(function (socket) {
 
+  /******* Initial process for every connecting client/socket *******/
+
   // Identify this client
   socket.name = socket.remoteAddress + ":" + socket.remotePort 
 
@@ -42,6 +44,9 @@ net.createServer(function (socket) {
   // Send a nice welcome message and announce
   socket.write("Welcome " + socket.name + "\n");
   broadcast(socket.name + " joined the chat\n", socket);
+
+  /******* End initial process *******/
+
 
   // Handle incoming messages from clients.
   socket.on('data', function (data) {
@@ -54,6 +59,7 @@ net.createServer(function (socket) {
     broadcast(socket.name + " left the chat.\n");
   });
   
+  
   // Send a message to all clients
   function broadcast(message, sender) {
     clients.forEach(function (client) {
@@ -65,7 +71,7 @@ net.createServer(function (socket) {
     process.stdout.write(message)
   }
 
-}).listen(5000);
+}).listen(5000); // start server on port number 5000
 
 // Put a friendly message on the terminal of the server.
 console.log("Chat server running at port 5000\n");
