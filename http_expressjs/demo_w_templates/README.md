@@ -6,8 +6,8 @@ ExpressJS is a microframework for NodeJS. It is very similiar to Ruby's Sinatra 
 
 While ExpressJS does not do everything, it is great for the small apps that need very basic functionality. 
 
-
-ExpressJS website - [http://expressjs.com/](http://expressjs.com/)
+* ExpressJS website - [http://expressjs.com/](http://expressjs.com/)
+* Hogan-Express repo - [https://github.com/vol4ok/hogan-express](https://github.com/vol4ok/hogan-express)
 
 ### Package.json
 
