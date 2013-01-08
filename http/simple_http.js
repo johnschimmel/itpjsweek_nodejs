@@ -3,7 +3,9 @@
 Simple HTTP Web Server, 
 * Starts a web server
 * Accepts client connection and returns "Hello World"
+
 --------------------------------
+
 USAGE
 
 Start Server, navigate to code directory in Terminal: 
