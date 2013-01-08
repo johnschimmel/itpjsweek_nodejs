@@ -50,7 +50,7 @@ Open Web Browser and navigate to [http://localhost:3000](http://localhost:3000)
 Available URLs 
 
 * [http://localhost:3000/](http://localhost:3000)
-* [http://localhost:3000/form](http://localhost:3000)
+* [http://localhost:3000/form](http://localhost:3000/form)
 
 
 ### Stopping the server (CTRL+C)
