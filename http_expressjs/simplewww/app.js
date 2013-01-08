@@ -3,33 +3,42 @@
  * Module dependencies.
  */
 
-var express = require('express')
-  , routes = require('./routes')
-  , user = require('./routes/user')
-  , http = require('http')
-  , path = require('path');
+var express = require('express');
 
 var app = express();
 
 app.configure(function(){
   app.set('port', process.env.PORT || 3000);
-  app.set('views', __dirname + '/views');
-  app.set('view engine', 'jade');
-  app.use(express.favicon());
-  app.use(express.logger('dev'));
   app.use(express.bodyParser());
   app.use(express.methodOverride());
-  app.use(app.router);
-  app.use(express.static(path.join(__dirname, 'public')));
 });
 
 app.configure('development', function(){
   app.use(express.errorHandler());
 });
 
-app.get('/', routes.index);
-app.get('/users', user.list);
-
-http.createServer(app).listen(app.get('port'), function(){
-  console.log("Express server listening on port " + app.get('port'));
+app.get('/', function(req, res) {
+  res.send("<h1>Hello World</h1>");
 });
+
+app.get('/form', function(req, res) {
+
+	form = "<form method='POST'><input type='text' name='mydata' placeholder='Enter some text'><input type='submit'></form>"
+	res.send(form);
+
+});
+
+app.post('/form', function(req, res){
+
+	console.log("form submission");
+	console.log(req.body.mydata); // form data pass in req.body 
+
+	res.send("Thanks for this: <b>" + req.body.mydata + "<b>");
+
+	
+});
+
+//app.get('/users', user.list);
+
+app.listen(app.get('port'));
+console.log("Server started on port "+ app.get('port'));
