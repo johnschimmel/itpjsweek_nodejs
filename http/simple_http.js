@@ -13,7 +13,6 @@ Open Web Browser and navigate to http://localhost:8000 or http://127.0.0.1:8000
 
 */
 
-
 var http = require('http');
 
 // Create a HTTP server on port 8000
@@ -21,10 +20,20 @@ var http = require('http');
 
 http.createServer(function (req, res) {
   
-  res.writeHead(200, {'Content-Type': 'text/plain'}); // prepare response headers
-  res.end('Hello World\n'); // send response and close connection
+	var path = req.url;
+	console.log("requested " + path);
 
-}).listen(8000, '127.0.0.1');
+	res.writeHead(200, {'Content-Type': 'text/html'}); // prepare response headers
+	
+	if (path == "/") {
+		res.end("Hello World. <a href='/page2'>Page 2</a>\n");
+
+	} else if (path == "/page2") {
+		res.end("This is page 2. <a href='/'>Back.</a>\n"); // send response and close connection	
+	}
+	
+
+}).listen(8000);
 
 // console info message
 console.log('Server running at http://127.0.0.1:8000/');
