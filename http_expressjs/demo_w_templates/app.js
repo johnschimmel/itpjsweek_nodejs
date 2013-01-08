@@ -9,7 +9,9 @@ var express = require('express')
 
 var app = express();
 
+// Express app configuration 
 app.configure(function(){
+
   app.set('port', process.env.PORT || 3000);
   
   //  templates directory
@@ -22,11 +24,9 @@ app.configure(function(){
   app.engine('html', require('hogan-express'));
 
 
-  app.use(express.favicon());
   app.use(express.logger('dev'));
   app.use(express.bodyParser());
   app.use(express.methodOverride());
-  // app.use(app.router);
   
   // css, images and js
   app.use(express.static(path.join(__dirname, 'public')));
@@ -43,7 +43,7 @@ app.configure('development', function(){
 app.get('/', function(req, res) {
   
   var templateData = {
-    name : 'Tony Pony',
+    content : 'Hello World',
     title : 'ExpressJS Demo'
   }
   
@@ -52,7 +52,7 @@ app.get('/', function(req, res) {
 });
 
 app.get('/page2', function(req, res) {
-  res.send("this is page 2");
+  res.render('page2');
 });
 
 // Start the Server
