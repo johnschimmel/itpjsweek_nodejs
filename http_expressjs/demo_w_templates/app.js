@@ -43,7 +43,7 @@ app.configure('development', function(){
 app.get('/', function(req, res) {
   
   var templateData = {
-    content : 'Hello World',
+    content : 'Hello World!!',
     title : 'ExpressJS Demo'
   }
   

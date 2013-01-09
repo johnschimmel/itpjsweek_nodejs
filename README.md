@@ -36,3 +36,14 @@ NPM is included when you download and install NodeJS. [NPMJS.org](https://npmjs.
 ## Node API 
 
 [Node API](http://nodejs.org/api/)
+
+## NodeJS Hosting
+
+* [Heroku](http://www.heroku.com) - great service. Git deployment. No websockets yet, only long polling.
+* [Nodejitsu](http://nodejitsu.com) - NodeJS hosting and Websocket support
+* Any VPS server where you are allowed to run scripts as root, EC2, Linode, etc.
+
+## other tools
+
+* Nodemon - [https://github.com/remy/nodemon](https://github.com/remy/nodemon) - auto restart node script when you are developing 
+* Forever - [https://github.com/nodejitsu/forever](https://github.com/nodejitsu/forever) - a process manager for Node. Use Forever to start a Node script then close the terminal window. With Forever you can come back to your shell and use the Forever command line to view, stop or restart the running Node scripts.
